@@ -2,6 +2,8 @@ background(0);
 
 translate(width/2, height/2);
 
+pointLight(255, 255, 255, 0, 0, 100);
+
 var i, j;
 for(i = -16; i < 16; i++) {
   for(j = -16; j < 16; j++) {
@@ -16,7 +18,7 @@ for(i = -16; i < 16; i++) {
       rotateX(frameCount / 300);
     }
     stroke(255);
-    noFill();
+    fill(255);
     box(50);
     popMatrix();
   }
