@@ -1,5 +1,28 @@
 background(0);
 
+function Agent () {
+    this.size = 10;
+}
+
+define("agents", new java.util.HashMap());
+
+define("doInitialize", 1);
+//doInitialize = 1;
+
+if(doInitialize > 0) {
+  agents.clear();
+  var i, j;
+  for(i = -16; i < 16; i++) {
+    for(j = -16; j < 16; j++) {
+      agents.put(i + "," + j, new Agent);
+      agents[i + "," + j].size = 17 + i;
+    }
+  }
+
+  doInitialize = 0;
+  //print(agents);
+}
+
 translate(width/2, height/2);
 
 pointLight(255, 255, 255, 0, 0, 100);
@@ -19,7 +42,7 @@ for(i = -16; i < 16; i++) {
     }
     stroke(255);
     fill(255);
-    box(50);
+    box(agents[i + "," + j].size);
     popMatrix();
   }
 }
